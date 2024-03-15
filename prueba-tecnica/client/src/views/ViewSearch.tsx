@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { Spinner } from "@/components/ui/spinner";
-import { fetchCustomers, fetchSearchCustomers } from "@/actions/fetch-customers"; // Importa la función fetchCustomers
+import { fetchSearchCustomers } from "@/actions/fetch-customers";
 import { Customer } from "@/types";
+import "./tables.css"
 
 export function ViewSearch() {
     const [customers, setCustomers] = useState<Customer[]>([]);
@@ -56,7 +57,8 @@ export function ViewSearch() {
             type="text" 
             value={searchTerm} 
             onChange={handleSearchChange} 
-            className="w-[65%] px-4 py-2 border border-gray-300 rounded-md mb-4 text-black" 
+            className="w-[65%] px-4 py-2 border border-gray-300 rounded-md mb-4 text-black"
+            style={{color: 'black'}}
             placeholder="Search customers..." 
             />
         </div>
@@ -64,25 +66,25 @@ export function ViewSearch() {
         <table className="w-full border-collapse">
             <thead>
             <tr>
-                <th className="border border-gray-300 px-2 py-2">id</th>
-                <th className="border border-gray-300 px-2 py-2">First Name</th>
-                <th className="border border-gray-300 px-2 py-2">Last Name</th>
-                <th className="border border-gray-300 px-2 py-2">Company</th>
-                <th className="border border-gray-300 px-2 py-2">City</th>
-                <th className="border border-gray-300 px-2 py-2">Country</th>
-                <th className="border border-gray-300 px-2 py-2">Email</th>
+                <th className="ctn-tables border border-gray-300 px-2 py-2">id</th>
+                <th className="ctn-tables border border-gray-300 px-2 py-2">First Name</th>
+                <th className="ctn-tables border border-gray-300 px-2 py-2">Last Name</th>
+                <th className="ctn-tables border border-gray-300 px-2 py-2">Company</th>
+                <th className="ctn-tables border border-gray-300 px-2 py-2">City</th>
+                <th className="ctn-tables border border-gray-300 px-2 py-2">Country</th>
+                <th className="ctn-tables border border-gray-300 px-2 py-2">Email</th>
             </tr>
             </thead>
             <tbody>
             {customers.map((customer) => (
                 <tr key={customer.id} className="border border-gray-300">
-                <td className="border border-gray-300 px-2 py-2">{customer.id}</td>
-                <td className="border border-gray-300 px-2 py-2">{customer.firstName}</td>
-                <td className="border border-gray-300 px-2 py-2">{customer.lastName}</td>
-                <td className="border border-gray-300 px-2 py-2">{customer.company}</td>
-                <td className="border border-gray-300 px-2 py-2">{customer.city}</td>
-                <td className="border border-gray-300 px-2 py-2">{customer.country}</td>
-                <td className="border border-gray-300 px-2 py-2">{customer.email}</td>
+                <td className="ctn-tables border border-gray-300 px-2 py-2">{customer.id}</td>
+                <td className="ctn-tables border border-gray-300 px-2 py-2">{customer.firstName}</td>
+                <td className="ctn-tables border border-gray-300 px-2 py-2">{customer.lastName}</td>
+                <td className="ctn-tables border border-gray-300 px-2 py-2">{customer.company}</td>
+                <td className="ctn-tables border border-gray-300 px-2 py-2">{customer.city}</td>
+                <td className="ctn-tables border border-gray-300 px-2 py-2">{customer.country}</td>
+                <td className="ctn-tables border border-gray-300 px-2 py-2">{customer.email}</td>
                 </tr>
             ))}
             </tbody>
