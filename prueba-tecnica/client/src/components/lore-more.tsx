@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { Spinner } from "@/components/ui/spinner";
-import { fetchCustomers } from "@/actions/fetch-customers";
+import { fetchCustomers } from "@/actions/fetch-customers"; // Importamos fetchSearchCustomers
 import { Customer } from "@/types";
 
 export function LoadMore() {
@@ -12,6 +12,7 @@ export function LoadMore() {
   const [loading, setLoading] = useState(false);
   const [totalItems, setTotalItems] = useState(0);
   const [initialLoad, setInitialLoad] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(""); // Nuevo estado para el término de búsqueda
 
   const { ref, inView } = useInView();
 
@@ -39,8 +40,8 @@ export function LoadMore() {
   };
 
   return (
-    <>      
-      <table className="w-full border-collapse mt-4">
+    <>
+      <table className="w-full border-collapse">
         <thead>
           <tr>
             <th className="border border-gray-300 px-2 py-2">Customer ID</th>
@@ -80,4 +81,3 @@ export function LoadMore() {
     </>
   );
 }
-
