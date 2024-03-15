@@ -42,8 +42,8 @@ const searchCustomers = async (req: Request, res: Response): Promise<void> => {
         const totalCustomers = filteredCustomers.count;
         const totalPages = Math.ceil(totalCustomers / limit);
 
-        const prevPage = page > 1 ? page - 1 : null;
-        const nextPage = page < totalPages ? page + 1 : null;
+        const prevPage = page > 1 ? page - 1 : false;
+        const nextPage = page < totalPages ? page + 1 : false;
 
         const response = {
             message: 'Success',
@@ -52,8 +52,8 @@ const searchCustomers = async (req: Request, res: Response): Promise<void> => {
                 totalCustomers: totalCustomers,
                 totalPages: totalPages,
                 currentPage: page,
-                prevPage: prevPage,
-                nextPage: nextPage
+                hasNextPage: nextPage,
+                hasPrevPage: prevPage,
             }
         };
 
