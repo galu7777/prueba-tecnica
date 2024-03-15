@@ -71,7 +71,7 @@ export function ViewAllCustomers() {
             {!initialLoad && (
             <button 
                 onClick={handleInitialLoad} 
-                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                className="bg-btn text-white px-4 py-2 rounded-md"
             >
                 Load Data
             </button>
