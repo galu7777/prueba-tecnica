@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ViewAllCustomers } from "@/views/ViewAllCustomers";
-import { ViewSearch } from "@/views/viewSearch";
+import { ViewSearch } from "@/views/ViewSearch";
 
 export default function Home() {
     const [currentView, setCurrentView] = useState('all'); // Estado para mantener la vista actual
@@ -16,7 +16,7 @@ export default function Home() {
     };
 
     return (
-        <div className="w-full h-screen flex justify-center items-center flex-col">
+        <div className="w-full h-screen flex flex-col justify-center items-center">
             <div className="flex items-center mb-4">
                 <img src="https://netsocs.com/logo-netsocs-03.png" alt="NetSocs Logo" className="h-8 mr-2" />
                 <h1 className="text-3xl font-bold">Prueba técnica Netsocs</h1>
@@ -25,7 +25,6 @@ export default function Home() {
                 {currentView === 'all' && <ViewAllCustomers />}
                 {currentView === 'search' && <ViewSearch />}
             </div>
-
             <div className="flex justify-center mt-4">
                 <button 
                     onClick={handleViewAllClick} 
@@ -36,7 +35,9 @@ export default function Home() {
                     className="bg-green-500 text-white px-4 py-2 rounded-md"
                 >Buscar</button>
             </div>
+            <footer className="mt-4 text-center text-gray-600">
+                Netsocs 2024
+            </footer>
         </div>
     );
 }
-
