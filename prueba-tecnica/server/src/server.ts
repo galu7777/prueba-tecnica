@@ -26,7 +26,7 @@ server.use((req: Request, res: Response, next: NextFunction) => {
     next();
 });
 
-server.use('/', routes);
+server.use('/v1', routes);
 
 server.use((err: any, req: Request, res: Response, next: NextFunction) => {
     const status = err.status || 500;
