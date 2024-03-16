@@ -9,7 +9,7 @@ import "./tables.css"
 
 export function ViewAllCustomers() {
     const [customers, setCustomers] = useState<Customer[]>([]);
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(0);
     const [loading, setLoading] = useState(false);
     const [totalItems, setTotalItems] = useState(0);
     const [initialLoad, setInitialLoad] = useState(false);
@@ -21,9 +21,9 @@ export function ViewAllCustomers() {
         const nextPage = page + 1;
         const data: any = await fetchCustomers(nextPage);
         if (data && data.error === false) {
-        setCustomers((prevCustomers: Customer[]) => [...prevCustomers, ...data.data.customers]);
-        setTotalItems(data.data.paginationInfo.totalItems);
-        setPage(nextPage);
+            setCustomers((prevCustomers: Customer[]) => [...prevCustomers, ...data.data.customers]);
+            setTotalItems(data.data.paginationInfo.totalItems);
+            setPage(nextPage);
         }
         setLoading(false);
     };
@@ -38,7 +38,7 @@ export function ViewAllCustomers() {
         await loadMoreCustomers();
         setInitialLoad(true);
     };
-
+    
     return (
         <>
         <table className="w-full border-collapse">
