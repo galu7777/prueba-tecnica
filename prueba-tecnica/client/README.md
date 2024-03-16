@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# API de Gestión de Clientes
 
-## Getting Started
+Esta API proporciona endpoints para gestionar clientes, permitiendo obtener todos los clientes y buscar clientes filtrados.
 
-First, run the development server:
+#### Instalar Dependencias
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Para instalar las dependencias del proyecto, ejecuta el siguiente comando en tu terminal:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**pnpm install**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Ejecutar el Proyecto
+Para ejecutar el proyecto, puedes usar el siguiente comando:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**pnpm run dev** o **npm run dev**
 
-## Learn More
+## Vistas Disponibles
 
-To learn more about Next.js, take a look at the following resources:
+### Obtener Todos los Clientes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Es una vista que muestra a todos los clientes almacenados en la base de datos, con scroll infinito.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Buscar Clientes
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Es una vista que busca a los clientes almacenados en la base de datos, y como referencia usa al `First Name`, `Last Name` `City`, `Email` y `Subscription Date`. Un solo input que permita buscar en todos los campos mencionados, si la busqueda tiene muchos elementos se iran mostrando de 10 en 10 con scroll infinito.
