@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { ViewAllCustomers } from "@/views/ViewAllCustomers";
 import { ViewSearch } from "@/views/ViewSearch";
+import { ViewCustomerAnalytics } from "@/views/ViewCustomerAnalytics";
+import { ViewDescendingAllCustomer } from "@/views/ViewDescendingAllCustomer";
 
 export default function Home() {
     const [currentView, setCurrentView] = useState('all'); // Estado para mantener la vista actual
@@ -11,8 +13,16 @@ export default function Home() {
         setCurrentView('all'); // Cambiar a vista de todos los clientes
     };
 
+    const handleDescendingClick = () => {
+        setCurrentView('descending'); // Cambiar a vista de búsqueda
+    };
+
     const handleSearchClick = () => {
         setCurrentView('search'); // Cambiar a vista de búsqueda
+    };
+
+    const handleAnalyticsClick = () => {
+        setCurrentView('analytics'); // Cambiar a vista de analisis
     };
 
     return (
@@ -24,6 +34,8 @@ export default function Home() {
             <div className="w-[85%] h-85vh bg-gray-700 overflow-y-auto">
                 {currentView === 'all' && <ViewAllCustomers />}
                 {currentView === 'search' && <ViewSearch />}
+                {currentView === 'analytics' && <ViewCustomerAnalytics />}
+                {currentView === 'descending' && <ViewDescendingAllCustomer />}
             </div>
             <div className="flex justify-center mt-4">
                 <button 
@@ -31,9 +43,17 @@ export default function Home() {
                     className="bg-green-500 text-white px-4 py-2 rounded-md mr-4"
                 >Ver Todos</button>
                 <button 
+                    onClick={handleDescendingClick}
+                    className="bg-green-500 text-white px-4 py-2 rounded-md mr-4"
+                >Ver Todos Decendente</button>
+                <button 
                     onClick={handleSearchClick}
-                    className="bg-green-500 text-white px-4 py-2 rounded-md"
+                    className="bg-green-500 text-white px-4 py-2 rounded-md mr-4"
                 >Buscar</button>
+                <button 
+                    onClick={handleAnalyticsClick}
+                    className="bg-green-500 text-white px-4 py-2 rounded-md "
+                >Analisis</button>
             </div>
             <footer className="mt-4 text-center text-gray-600">
                 Netsocs 2024
